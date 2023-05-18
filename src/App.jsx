@@ -4,27 +4,27 @@ import { getCities } from './services/getCities'
 import { CitySelect } from './components/CitySelect'
 import { CountrySelect } from './components/CountrySelect'
 import { getWeather } from './services/getWeather'
+import Weather from './components/Weather'
 
 function App () {
   // States
   const [cities, setCities] = useState()
-  const [weather, setWeather] = useState({})
+  const [weather, setWeather] = useState(null)
 
   const countryHandler = async (e) => {
     if (!e.currentTarget.value) {
       setCities(null)
     } else {
       setCities(await getCities(e.currentTarget.value))
+      setWeather(null)
     }
   }
   const cityHandler = async (e) => {
+    if (!e.currentTarget.value) setWeather(null)
     const citySelected = e.target.value
     const newCity = cities.find((element) => element.id === citySelected)
-    setWeather(await getWeather(newCity.name))
+    if (newCity) setWeather(await getWeather(newCity.name))
   }
-
-  console.log(weather)
-
   return (
     <>
       <header>
@@ -35,9 +35,11 @@ function App () {
           <CountrySelect countryHandler={countryHandler} />
         </section>
         <section>
-          {Boolean(cities?.length) && <CitySelect allCities={cities} cityHandler={cityHandler} />}
+          {cities && <CitySelect allCities={cities} cityHandler={cityHandler} />}
         </section>
+        {weather && <Weather weatherData={weather} />}
       </main>
+
     </>
   )
 }

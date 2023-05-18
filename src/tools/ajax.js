@@ -1,4 +1,5 @@
 import axios from 'axios'
 
 export const ajax = async (options) => await axios.request(options)
-  .then(response => response.data).catch(error => console.log(error))
+  .then(response => response.data)
+  .catch(error => error.response.data)
