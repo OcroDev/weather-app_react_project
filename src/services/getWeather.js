@@ -1,16 +1,15 @@
-import ajax from '../tools/ajax'
+import { ajax } from '../tools/ajax'
 import { APIS_URLS } from './const_urls'
 
-export const getWeather = (latitude, longitude) => {
+export const getWeather = async (city) => {
   const optionsRequest = {
     method: 'GET',
     url: APIS_URLS.openWeather,
     params: {
-      lat: latitude,
-      lon: longitude,
+      q: city,
       appid: '29622ca559a3e8d56af934e111c2b28c',
       units: 'metric'
     }
   }
-  return ajax(optionsRequest)
+  return await ajax(optionsRequest)
 }
