@@ -9,5 +9,5 @@ export default function useCountries () {
         setCountries(await getCountries())
       })()
   }, [])
-  return countries
+  return countries.sort((a, b) => a.name.common.localeCompare(b.name.common))
 }
