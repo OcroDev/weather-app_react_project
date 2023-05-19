@@ -11,7 +11,7 @@ export const getCities = async (countryID = 'US') => {
       country: `${countryID}` ?? 'US'
     },
     headers: {
-      'X-RapidAPI-Key': 'a2590c6e21msh23db92b724b073cp187bcajsndd9b74186181',
+      'X-RapidAPI-Key': import.meta.env.VITE_RAPID_API_KEY,
       'X-RapidAPI-Host': 'spott.p.rapidapi.com'
     }
   }

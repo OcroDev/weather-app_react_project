@@ -7,7 +7,7 @@ export const getWeather = async (city) => {
     url: APIS_URLS.openWeather,
     params: {
       q: city,
-      appid: '29622ca559a3e8d56af934e111c2b28c',
+      appid: import.meta.env.VITE_OPEN_WEATHER_APP_KEY,
       units: 'metric'
     }
   }
