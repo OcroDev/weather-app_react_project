@@ -117,8 +117,11 @@
 }
 
 .summary {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
   color: #d2e9fa;
-  font-size: 2.0em;
+  font-size: 1.75em;
   font-weight: 300;
   width: 65%;
   margin-top: -16px;
