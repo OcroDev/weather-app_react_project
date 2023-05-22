@@ -1,15 +1,100 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
+
+
 .container { 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  height: 35em;
 }
 
 .widget {
   background: linear-gradient(to bottom right, #3cc0fe 20%, #0066ff);
+  background: linear-gradient(to bottom right, #3cc0fe  20%, #679acc);
+  width: 100%;
+  height: 85%;
+  border-radius: 6px;
+  box-shadow: 0px 60px 80px -20px rgba(#27a5fd, 0.4);
+}
+
+.detail{
+  font-family: Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  margin-left: 60px;
+}
+
+.temperature {
+  color: white;
+  font-weight: 500;
+  font-size: 10em;
+}
+
+.summary {
+  display: flex;
+  gap: 1em;
+  color: #d2e9fa;
+  font-size: 3.25em;
+  font-weight: 700;
+  width: 65%;
+  margin-top: -16px;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #9cd0ff;
+  margin-left: 8px;
+  text-align: center;
+}
+
+.summaryText {
+  margin: 0;
+  margin-left: 0px;
+}
+
+.precipitation, .wind {
+  font-size: 2.0em;
+  font-weight: 300;
+  margin-left: 8px;
+  color:#d2e9fa;
+}
+
+.precipitation{
+  margin-top: .50em;
+}
+
+.wind{
+  margin-top: .1em;
+}
+
+@media screen and (max-width:1050px){
+  
+  .summary {
+    color: #d2e9fa;
+    font-size: 2.25em;
+    font-weight: 700;
+    width: 35%;
+    margin-top: -16px;
+    margin-bottom: 16px;
+    border-bottom: 2px solid #9cd0ff;
+    margin-left: 8px;
+    text-align: center;
+  }
+  .precipitation, .wind {
+  font-size: 1.50em;
+  font-weight: 300;
+  margin-left: 8px;
+  color:#d2e9fa;
+}
+}
+
+@media screen  and (max-width:600px) 
+{
+
+.widget {
+  background: linear-gradient(to bottom right, #3cc0fe  20%, #679acc);
   width: 100%;
   height: 85%;
   border-radius: 6px;
@@ -27,14 +112,14 @@
 .temperature {
   color: white;
   font-weight: 300;
-  font-size: 7em;
+  font-size: 8em;
 }
 
 .summary {
   color: #d2e9fa;
-  font-size: 1.25em;
+  font-size: 2.25em;
   font-weight: 300;
-  width: 25%;
+  width: 35%;
   margin-top: -16px;
   margin-bottom: 16px;
   border-bottom: 2px solid #9cd0ff;
@@ -50,6 +135,7 @@
   font-size: 1.25em;
   font-weight: 300;
   margin-left: 8px;
+  color:#d2e9fa;
 }
 
 .precipitation{
@@ -58,4 +144,11 @@
 
 .wind{
   margin-top: 4px;
+}
+}
+
+@media (prefers-color-scheme: dark) {
+.widget {
+  background: linear-gradient(to bottom right, #2f5566  20%, #1d3e5f);
+}
 }

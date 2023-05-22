@@ -10,6 +10,7 @@ export default function Weather ({ weatherData }) {
       </>
     )
   }
+  console.log(weatherData)
 
   const capitalCase = weatherData.weather[0].description.charAt(0).toUpperCase() + weatherData.weather[0].description.slice(1)
 
@@ -20,6 +21,7 @@ export default function Weather ({ weatherData }) {
           <div className='temperature'>{weatherData?.main.temp}°</div>
           <div className='summary'>
             <p className='summaryText'>{capitalCase}</p>
+            <img src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} />
           </div>
           <div className='precipitation'>Precipitation: {weatherData?.main.humidity}%</div>
           <div className='wind'>Wind: {weatherData?.wind.speed} mph</div>

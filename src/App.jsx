@@ -23,7 +23,7 @@ function App () {
     if (!e.currentTarget.value) setWeather(null)
     const citySelected = e.target.value
     const newCity = cities.find((element) => element.id === citySelected)
-    console.log(newCity)
+
     if (newCity) {
       setWeather(await getWeather(newCity.name))
     }
@@ -31,7 +31,7 @@ function App () {
   return (
     <>
       <header>
-        <h2>Weather app 🌤️</h2>
+        <h2 style={{ textAlign: 'center' }}> ⛈️ Weather app 🌤️</h2>
       </header>
       <main>
         <section>

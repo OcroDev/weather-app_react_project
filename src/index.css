@@ -120,10 +120,12 @@ body {
   background: #fff;
   background: var(--background-body);
   text-rendering: optimizeLegibility;
+  background-color:#85c2ff;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 @media (prefers-color-scheme: dark) {
-
   body {
   background: #202b38;
   background: var(--background-body);
@@ -131,7 +133,6 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-
   body {
   color: #dbdbdb;
   color: var(--text-main);
@@ -220,7 +221,6 @@ textarea {
 }
 
 @media (prefers-color-scheme: dark) {
-
   textarea {
   transition:
     background-color 0.1s linear,
@@ -1655,3 +1655,4 @@ dialog::backdrop {
     text-decoration: underline;
   }
 }
+
