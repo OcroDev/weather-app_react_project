@@ -5,6 +5,7 @@ import { CitySelect } from './components/CitySelect'
 import { CountrySelect } from './components/CountrySelect'
 import { getWeather } from './services/getWeather'
 import Weather from './components/Weather'
+import './App.css'
 
 function App () {
   // States
@@ -31,15 +32,15 @@ function App () {
   return (
     <>
       <header>
-        <h2 style={{ textAlign: 'center' }}> ⛈️ Weather app 🌤️</h2>
+        <h1> ⛈️ Weather app 🌤️</h1>
       </header>
       <main>
+
         <section>
           <CountrySelect countryHandler={countryHandler} />
-        </section>
-        <section>
           {cities && <CitySelect allCities={cities} cityHandler={cityHandler} />}
         </section>
+
         {weather && <Weather weatherData={weather} />}
       </main>
 

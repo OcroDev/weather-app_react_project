@@ -42,7 +42,7 @@
   color: #d2e9fa;
   font-size: 3.25em;
   font-weight: 700;
-  width: 65%;
+  width: 45%;
   margin-top: -16px;
   margin-bottom: 16px;
   border-bottom: 2px solid #9cd0ff;
@@ -162,7 +162,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 1.0em;
+  font-size: 1.5em;
   width: 65%;
 }
 
