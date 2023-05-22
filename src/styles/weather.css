@@ -1,0 +1,61 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.container { 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.widget {
+  background: linear-gradient(to bottom right, #3cc0fe 20%, #0066ff);
+  width: 100%;
+  height: 85%;
+  border-radius: 6px;
+  box-shadow: 0px 60px 80px -20px rgba(#27a5fd, 0.4);
+}
+
+.detail{
+  font-family: Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  margin-left: 60px;
+}
+
+.temperature {
+  color: white;
+  font-weight: 300;
+  font-size: 7em;
+}
+
+.summary {
+  color: #d2e9fa;
+  font-size: 1.25em;
+  font-weight: 300;
+  width: 25%;
+  margin-top: -16px;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #9cd0ff;
+  margin-left: 8px;
+}
+
+.summaryText {
+  margin: 0;
+  margin-left: 0px;
+}
+
+.precipitation, .wind {
+  font-size: 1.25em;
+  font-weight: 300;
+  margin-left: 8px;
+}
+
+.precipitation{
+  margin-top: 16px;
+}
+
+.wind{
+  margin-top: 4px;
+}

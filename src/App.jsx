@@ -23,12 +23,15 @@ function App () {
     if (!e.currentTarget.value) setWeather(null)
     const citySelected = e.target.value
     const newCity = cities.find((element) => element.id === citySelected)
-    if (newCity) setWeather(await getWeather(newCity.name))
+    console.log(newCity)
+    if (newCity) {
+      setWeather(await getWeather(newCity.name))
+    }
   }
   return (
     <>
       <header>
-        <h1>Weather app</h1>
+        <h2>Weather app 🌤️</h2>
       </header>
       <main>
         <section>

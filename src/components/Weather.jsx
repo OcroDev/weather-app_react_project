@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styles/weather.css'
 
 export default function Weather ({ weatherData }) {
   if (weatherData.cod === '404') {
@@ -9,12 +10,21 @@ export default function Weather ({ weatherData }) {
       </>
     )
   }
+
+  const capitalCase = weatherData.weather[0].description.charAt(0).toUpperCase() + weatherData.weather[0].description.slice(1)
+
   return (
-    <section>
-      <p>Temperature: {weatherData?.main.temp} °C</p>
-      <p>Humidity: {weatherData?.main.humidity}%</p>
-      <p>Thermal sensation: {weatherData?.main.feels_like} °C</p>
-      <p>Description: {weatherData?.weather[0].description}</p>
+    <section className='container'>
+      <div className='widget'>
+        <div className='detail'>
+          <div className='temperature'>{weatherData?.main.temp}°</div>
+          <div className='summary'>
+            <p className='summaryText'>{capitalCase}</p>
+          </div>
+          <div className='precipitation'>Precipitation: {weatherData?.main.humidity}%</div>
+          <div className='wind'>Wind: {weatherData?.wind.speed} mph</div>
+        </div>
+      </div>
     </section>
   )
 }
