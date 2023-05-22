@@ -118,9 +118,9 @@
 
 .summary {
   color: #d2e9fa;
-  font-size: 2.25em;
+  font-size: 2.0em;
   font-weight: 300;
-  width: 35%;
+  width: 65%;
   margin-top: -16px;
   margin-bottom: 16px;
   border-bottom: 2px solid #9cd0ff;
@@ -159,7 +159,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 1.25em;
+  font-size: 1.0em;
   width: 65%;
 }
 
