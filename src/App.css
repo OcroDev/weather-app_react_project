@@ -2,8 +2,16 @@ h1{
   text-align: center;
 }
 
-section{
-  display: flex;
-  flex-direction: column;
+ section{
+    display: flex;
+    flex-direction:column;
+ }
+
+@media screen and (min-width:750px){
+
+  section{
+  flex-direction: row;
+  align-items: center;
   gap: 1em;
+  }
 }
