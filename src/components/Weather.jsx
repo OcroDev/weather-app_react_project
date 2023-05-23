@@ -1,5 +1,6 @@
 import React from 'react'
 import '../styles/weather.css'
+import weather from '../assets/weather.svg'
 
 export default function Weather ({ weatherData }) {
   if (weatherData.cod === '404') {
@@ -11,16 +12,63 @@ export default function Weather ({ weatherData }) {
     )
   }
   console.log(weatherData)
+  return (
+    <>
+      <div className='cardm'>
+        <div className='card'>
+          <img src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} />
+          <div className='main'>23 °C</div>
+          <div className='mainsub'>Dunmore, Ireland</div>
 
-  const capitalCase = weatherData.weather[0].description.charAt(0).toUpperCase() + weatherData.weather[0].description.slice(1)
+        </div>
 
+        <div className='card2'>
+          <div className='upper'>
+            <div className='humidity'>
+              <div className='humiditytext'>Humidity<br />{weatherData?.main.humidity}%</div>
+
+            </div>
+
+            <div className='air'>
+              <div className='airtext'>Wind<br /> {weatherData?.wind.speed} Km/h</div>
+
+            </div>
+          </div>
+
+          <div className='lower'>
+            <div className='aqi'>
+
+              <div className='aqitext'>AQI<br />{weatherData?.wind.gust}</div>
+            </div>
+
+            <div className='realfeel'>
+
+              <div className='realfeeltext'>Real Feel<br />{weatherData?.main.feels_like} °C</div>
+            </div>
+
+            <div className='pressure'>
+
+              <div className='pressuretext'>Pressure<br />{weatherData?.main.pressure} mbar</div>
+            </div>
+            <div className='card3' />
+          </div>
+        </div>
+      </div>
+    </>
+  )
+/*
   return (
     <section className='container'>
       <div className='widget'>
         <div className='detail'>
           <div className='temperature'>{weatherData?.main.temp}°</div>
           <div className='summary'>
-            <p className='summaryText'>{capitalCase}</p>
+            <p className='summaryText'>{weatherData.weather[0]
+              .description.charAt(0)
+              .toUpperCase() + weatherData.weather[0]
+              .description
+              .slice(1)}
+            </p>
             <img src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} />
           </div>
           <div className='precipitation'>Precipitation: {weatherData?.main.humidity}%</div>
@@ -29,4 +77,6 @@ export default function Weather ({ weatherData }) {
       </div>
     </section>
   )
+  https://uiverse.io/Praashoo7/old-dingo-81
+  */
 }
