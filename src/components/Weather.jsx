@@ -1,8 +1,8 @@
 import React from 'react'
 import '../styles/weather.css'
-import weather from '../assets/weather.svg'
-
-export default function Weather ({ weatherData }) {
+import WindSvg from './WindSvg'
+import HumiditySvg from './HumiditySvg'
+export default function Weather ({ weatherData, countryName, cityName }) {
   if (weatherData.cod === '404') {
     return (
       <>
@@ -11,14 +11,14 @@ export default function Weather ({ weatherData }) {
       </>
     )
   }
-  console.log(weatherData)
+
   return (
     <>
       <div className='cardm'>
         <div className='card'>
           <img src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} />
           <div className='main'>23 °C</div>
-          <div className='mainsub'>Dunmore, Ireland</div>
+          <div className='mainsub'>{cityName} <br /> {countryName}</div>
 
         </div>
 
@@ -26,13 +26,12 @@ export default function Weather ({ weatherData }) {
           <div className='upper'>
             <div className='humidity'>
               <div className='humiditytext'>Humidity<br />{weatherData?.main.humidity}%</div>
-
             </div>
-
-            <div className='air'>
+            <HumiditySvg />
+            <div className='air' width='30' height='30'>
               <div className='airtext'>Wind<br /> {weatherData?.wind.speed} Km/h</div>
-
             </div>
+            <WindSvg />
           </div>
 
           <div className='lower'>

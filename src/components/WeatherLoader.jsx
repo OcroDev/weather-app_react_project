@@ -5,16 +5,16 @@ import React from 'react'
 export function WeatherLoader () {
   return (
 
-    <div class='loader-container'>
-      <div class='cloud front'>
-        <span class='left-front' />
-        <span class='right-front' />
+    <div className='loader-container'>
+      <div className='cloud front'>
+        <span className='left-front' />
+        <span className='right-front' />
       </div>
-      <span class='sun sunshine' />
-      <span class='sun' />
-      <div class='cloud back'>
-        <span class='left-back' />
-        <span class='right-back' />
+      <span className='sun sunshine' />
+      <span className='sun' />
+      <div className='cloud back'>
+        <span className='left-back' />
+        <span className='right-back' />
       </div>
     </div>
 

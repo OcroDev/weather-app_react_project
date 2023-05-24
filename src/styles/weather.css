@@ -189,8 +189,8 @@
   width: 250px;
   height: 130px;
   border-radius: 25px;
-  background: whitesmoke;
-  color: black;
+  background: #4c9beb;
+  color: #000;
   z-index: 2;
   transition: .4s ease-in-out;
 }
@@ -221,7 +221,7 @@
   width: 240px;
   height: 130px;
   border-radius: 35px;
-  background: white;
+  background: whitesmoke;
   z-index: -1;
   transition: .4s ease-in-out;
 }
@@ -253,16 +253,26 @@
 
 .humiditytext {
   position: relative;
-  left: 3.6em;
+  left:1.6em;
   top: 2.7em;
   font-size: 0.6em;
 }
-
+.humiditysvg{
+  position:relative;
+  left:-12.6em;
+  top: 2.5em;
+  font-size: 0.6em;
+}
 .airtext {
   position: relative;
-  left: 3.8em;
+  left: -6em;
   top: 2.7em;
   font-size: 0.6em;
+}
+.airsvg{
+  position:relative;
+  left: -12.1em;
+  top: 1.5em;
 }
 
 .lower {
@@ -270,7 +280,7 @@
   flex-direction: row;
   position: absolute;
   text-align: center;
-  color: black;
+  color: #000;
   left: 3em;
   top: 1em;
   margin-top: 0.7em;
@@ -301,4 +311,22 @@
   border-bottom-right-radius: 35px;
   background: whitesmoke;
   transition: .4s ease-in-out;
+}
+
+@media (prefers-color-scheme: dark){
+  
+  .card2{
+    background: #212121;
+  }
+
+  .card:hover {
+  background-color: #747bb4;
+  }
+
+  .lower, .upper{
+    color: #efefef
+  }
+  .card3{
+    background: #212121 ;
+  }
 }

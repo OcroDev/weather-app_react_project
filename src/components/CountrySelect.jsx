@@ -1,8 +1,5 @@
-import useCountries from '../hooks/useCountries'
 
-export function CountrySelect ({ countryHandler }) {
-  const countries = useCountries()
-
+export function CountrySelect ({ countryHandler, countries }) {
   return (
     <>
       <label htmlFor='countries'>Select your country </label>

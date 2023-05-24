@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { getCities } from './services/getCities'
 import { CitySelect } from './components/CitySelect'
 import { CountrySelect } from './components/CountrySelect'
@@ -8,18 +8,24 @@ import Weather from './components/Weather'
 import { Spinner } from './components/Spinner'
 import { WeatherLoader } from './components/WeatherLoader'
 import './App.css'
+import useCountries from './hooks/useCountries'
 
 function App () {
   // States
+  const countries = useCountries()
   const [cities, setCities] = useState()
   const [weather, setWeather] = useState(null)
   const [cityLoader, setCityLoader] = useState(false)
   const [weatherLoader, setWeatherLoader] = useState(false)
+  const countryRef = useRef()
+  const cityRef = useRef()
 
   const countryHandler = async (e) => {
     if (!e.currentTarget.value) {
       setCities(null)
     } else {
+      const country = countries.find((element) => element.cca2 === e.currentTarget.value)
+      countryRef.current = country?.name.common
       setCityLoader(true)
       setCities(await getCities(e.currentTarget.value))
       setCityLoader(false)
@@ -32,8 +38,8 @@ function App () {
     if (!e.currentTarget.value) setWeather(null)
     const citySelected = e.target.value
     const newCity = cities.find((element) => element.id === citySelected)
-
     if (newCity) {
+      cityRef.current = newCity.name
       setWeatherLoader(true)
       setWeather(await getWeather(newCity.name))
       setWeatherLoader(false)
@@ -47,7 +53,7 @@ function App () {
       <main>
 
         <section>
-          <CountrySelect countryHandler={countryHandler} />
+          <CountrySelect countryHandler={countryHandler} countries={countries} />
           {cityLoader && <Spinner />}
           {cities && <CitySelect allCities={cities} cityHandler={cityHandler} />}
         </section>
@@ -59,7 +65,7 @@ function App () {
             </div>
           </>)}
 
-        {weather && <Weather weatherData={weather} />}
+        {weather && <Weather weatherData={weather} countryName={countryRef.current} cityName={cityRef.current} />}
 
       </main>
 
