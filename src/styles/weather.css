@@ -256,27 +256,16 @@
 
 .humiditytext {
   position: relative;
-  left:1.6em;
+  left: 3.6em;
   top: 2.7em;
   font-size: 0.6em;
 }
-.humiditysvg{
-  position:relative;
-  left:-12.6em;
-  top: 2.5em;
-  font-size: 0.6em;
-}
+
 .airtext {
   position: relative;
-  left: -6em;
+  left: 3.8em;
   top: 2.7em;
   font-size: 0.6em;
-  width: 6em;
-}
-.airsvg{
-  position:relative;
-  left: -13.5em; 
-  top: 1.5em;
 }
 
 .lower {

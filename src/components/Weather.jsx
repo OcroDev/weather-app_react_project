@@ -29,12 +29,12 @@ export default function Weather ({ weatherData, countryName, cityName }) {
           <div className='upper'>
             <div className='humidity'>
               <div className='humiditytext'>Humidity<br />{weatherData?.main.humidity}%</div>
+              <HumiditySvg />
             </div>
-            <HumiditySvg />
             <div className='air' width='30' height='30'>
               <div className='airtext'>Wind<br /> {weatherData?.wind.speed} Km/h</div>
+              <WindSvg />
             </div>
-            <WindSvg />
           </div>
 
           <div className='lower'>
