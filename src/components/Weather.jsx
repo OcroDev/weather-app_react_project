@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../styles/weather.css'
 import WindSvg from './WindSvg'
 import HumiditySvg from './HumiditySvg'
 import AqiSvg from './AqiSvg'
 import RealFeelSvg from './RealFeelSvg'
 import PressureSvg from './PressureSvg'
+
 export default function Weather ({ weatherData, countryName, cityName }) {
   if (weatherData.cod === '404') {
     return (
@@ -15,13 +16,32 @@ export default function Weather ({ weatherData, countryName, cityName }) {
     )
   }
 
+  const [getImg, setGetImg] = useState(`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`)
+  // useEffect(() => {
+  //   function handleResize () {
+  //     const isMobile = window.innerWidth <= 750
+  //     if (isMobile) {
+  //       setGetImg(`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`)
+  //     } else {
+  //       setGetImg(`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png`)
+  //     }
+  //   }
+  //   handleResize()
+
+  //   window.addEventListener('resize', handleResize)
+
+  //   return () => {
+  //     window.removeEventListener('resize', handleResize)
+  //   }
+  // }, [])
+
   return (
     <>
       <div className='cardm'>
         <div className='card'>
-          <img src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} />
+          <img className='weather' src={getImg} />
           <div className='main'>23 °C</div>
-          <div className='mainsub'>{cityName} <br /> {countryName}</div>
+          <div className='mainsub'>{cityName}, <br /> {countryName}</div>
 
         </div>
 
@@ -31,9 +51,9 @@ export default function Weather ({ weatherData, countryName, cityName }) {
               <div className='humiditytext'>Humidity<br />{weatherData?.main.humidity}%</div>
               <HumiditySvg />
             </div>
-            <div className='air' width='30' height='30'>
+            <div className='air'>
               <div className='airtext'>Wind<br /> {weatherData?.wind.speed} Km/h</div>
-              <WindSvg />
+              <WindSvg width={30} heigth={30} />
             </div>
           </div>
 
