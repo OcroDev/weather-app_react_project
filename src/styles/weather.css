@@ -205,6 +205,7 @@
   position: relative;
   top: -3em;
   left: 4.3em;
+  width: fit-content;
 }
 
 .mainsub {
@@ -212,6 +213,7 @@
   top: -10.2em;
   left: 14em;
   font-size: 0.6em;
+  width: fit-content;
 }
 
 .card2 {
@@ -244,11 +246,12 @@
 .upper {
   display: flex;
   flex-direction: row;
-  position: relative;
+  position: absolute;
   color: black;
   left: 1.8em;
   top: 0.5em;
   gap: 4em;
+  
 }
 
 .humiditytext {
@@ -268,10 +271,11 @@
   left: -6em;
   top: 2.7em;
   font-size: 0.6em;
+  width: 6em;
 }
 .airsvg{
   position:relative;
-  left: -12.1em;
+  left: -13.5em; 
   top: 1.5em;
 }
 

@@ -2,6 +2,9 @@ import React from 'react'
 import '../styles/weather.css'
 import WindSvg from './WindSvg'
 import HumiditySvg from './HumiditySvg'
+import AqiSvg from './AqiSvg'
+import RealFeelSvg from './RealFeelSvg'
+import PressureSvg from './PressureSvg'
 export default function Weather ({ weatherData, countryName, cityName }) {
   if (weatherData.cod === '404') {
     return (
@@ -36,17 +39,16 @@ export default function Weather ({ weatherData, countryName, cityName }) {
 
           <div className='lower'>
             <div className='aqi'>
-
+              <AqiSvg />
               <div className='aqitext'>AQI<br />{weatherData?.wind.gust}</div>
             </div>
 
             <div className='realfeel'>
-
+              <RealFeelSvg />
               <div className='realfeeltext'>Real Feel<br />{weatherData?.main.feels_like} °C</div>
             </div>
-
             <div className='pressure'>
-
+              <PressureSvg />
               <div className='pressuretext'>Pressure<br />{weatherData?.main.pressure} mbar</div>
             </div>
             <div className='card3' />
