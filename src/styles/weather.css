@@ -130,7 +130,7 @@
   background: whitesmoke;
   transition: .4s ease-in-out;
 }
-/* 
+
 @media screen and (min-width: 750px){
 .cardm{
   margin-top: 7em;
@@ -161,6 +161,7 @@
   .card3{
     width: 480px;
     height: 110px;
+    z-index: -1;
   }
   .card:hover + .card2 {
     height: 600px;
@@ -189,7 +190,21 @@
   .airsvg{
     margin-left: 50px;
   }
-} */
+  .aqi {
+    font-size: 2.4em;
+    z-index: 1;
+  }
+  .realfeel {
+    margin-right: 1.8em;
+    font-size: 2.5em;
+    z-index: 1;
+  }
+  .pressuretext{
+    font-size: 2.5em;
+    z-index: 1;
+    
+  }
+}
 
 @media (prefers-color-scheme: dark){
   

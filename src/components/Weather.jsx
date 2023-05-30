@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
 import '../styles/weather.css'
 import WindSvg from './WindSvg'
 import HumiditySvg from './HumiditySvg'
 import AqiSvg from './AqiSvg'
 import RealFeelSvg from './RealFeelSvg'
 import PressureSvg from './PressureSvg'
+import { useEffect, useRef, useState } from 'react'
 
 export default function Weather ({ weatherData, countryName, cityName }) {
   if (weatherData.cod === '404') {
@@ -16,24 +16,31 @@ export default function Weather ({ weatherData, countryName, cityName }) {
     )
   }
 
-  const [getImg, setGetImg] = useState(`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`)
-  // useEffect(() => {
-  //   function handleResize () {
-  //     const isMobile = window.innerWidth <= 750
-  //     if (isMobile) {
-  //       setGetImg(`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`)
-  //     } else {
-  //       setGetImg(`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png`)
-  //     }
-  //   }
-  //   handleResize()
+  const [getImg, setGetImg] = useState(null)
+  const widthIcons = useRef(30)
+  const heightIcons = useRef(30)
 
-  //   window.addEventListener('resize', handleResize)
+  useEffect(() => {
+    function handleResize () {
+      const isMobile = window.innerWidth <= 750
+      if (isMobile) {
+        setGetImg(`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`)
+        heightIcons.current = 20
+        widthIcons.current = 20
+      } else {
+        setGetImg(`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png`)
+        heightIcons.current = 40
+        widthIcons.current = 40
+      }
+    }
+    handleResize()
 
-  //   return () => {
-  //     window.removeEventListener('resize', handleResize)
-  //   }
-  // }, [])
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   return (
     <>
@@ -42,7 +49,6 @@ export default function Weather ({ weatherData, countryName, cityName }) {
           <img className='weather' src={getImg} />
           <div className='main'>23 °C</div>
           <div className='mainsub'>{cityName}, <br /> {countryName}</div>
-
         </div>
 
         <div className='card2'>
@@ -59,16 +65,16 @@ export default function Weather ({ weatherData, countryName, cityName }) {
 
           <div className='lower'>
             <div className='aqi'>
-              <AqiSvg />
+              <AqiSvg width={widthIcons.current} height={heightIcons.current} />
               <div className='aqitext'>AQI<br />{weatherData?.wind.gust}</div>
             </div>
 
             <div className='realfeel'>
-              <RealFeelSvg />
+              <RealFeelSvg width={widthIcons.current} height={heightIcons.current} />
               <div className='realfeeltext'>Real Feel<br />{weatherData?.main.feels_like} °C</div>
             </div>
             <div className='pressure'>
-              <PressureSvg />
+              <PressureSvg width={widthIcons.current} height={heightIcons.current} />
               <div className='pressuretext'>Pressure<br />{weatherData?.main.pressure} mbar</div>
             </div>
             <div className='card3' />
@@ -78,26 +84,6 @@ export default function Weather ({ weatherData, countryName, cityName }) {
     </>
   )
 /*
-  return (
-    <section className='container'>
-      <div className='widget'>
-        <div className='detail'>
-          <div className='temperature'>{weatherData?.main.temp}°</div>
-          <div className='summary'>
-            <p className='summaryText'>{weatherData.weather[0]
-              .description.charAt(0)
-              .toUpperCase() + weatherData.weather[0]
-              .description
-              .slice(1)}
-            </p>
-            <img src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} />
-          </div>
-          <div className='precipitation'>Precipitation: {weatherData?.main.humidity}%</div>
-          <div className='wind'>Wind: {weatherData?.wind.speed} mph</div>
-        </div>
-      </div>
-    </section>
-  )
   https://uiverse.io/Praashoo7/old-dingo-81
   */
 }
