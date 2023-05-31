@@ -1,4 +1,6 @@
-export function CitySelect ({ allCities, cityHandler }) {
+import {Select} from 'antd'
+
+export function CitySelect({ allCities, cityHandler }) {
   return (
     <>
       <label htmlFor='cities'>Choose a city </label>
