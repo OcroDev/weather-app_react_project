@@ -141,7 +141,7 @@
     height: 260px;
   }
   .main {
-    font-size: 6em;
+    font-size: 5.4em;
     position: relative;
     top: -2.5em;
     left: 2.3em;
@@ -153,6 +153,7 @@
     left: 10em;
     font-size: 1.4em;
     width: fit-content;
+    margin-top: 1.5em;
   }
   .card2{
     width: 480px;

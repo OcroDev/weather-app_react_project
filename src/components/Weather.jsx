@@ -19,7 +19,6 @@ export default function Weather ({ weatherData, countryName, cityName }) {
   const [getImg, setGetImg] = useState(null)
   const widthIcons = useRef(30)
   const heightIcons = useRef(30)
-
   useEffect(() => {
     function handleResize () {
       const isMobile = window.innerWidth <= 750
@@ -47,7 +46,7 @@ export default function Weather ({ weatherData, countryName, cityName }) {
       <div className='cardm'>
         <div className='card'>
           <img className='weather' src={getImg} />
-          <div className='main'>23 °C</div>
+          <div className='main'>{weatherData?.main.temp}°C</div>
           <div className='mainsub'>{cityName}, <br /> {countryName}</div>
         </div>
 
