@@ -21,13 +21,13 @@ function App () {
   const cityRef = useRef()
 
   const countryHandler = async (e) => {
-    if (!e.currentTarget.value) {
+    if (!e) {
       setCities(null)
     } else {
-      const country = countries.find((element) => element.cca2 === e.currentTarget.value)
+      const country = countries.find((element) => element.cca2 === e)
       countryRef.current = country?.name.common
       setCityLoader(true)
-      setCities(await getCities(e.currentTarget.value))
+      setCities(await getCities(e))
       setCityLoader(false)
       setWeather(null)
     }
