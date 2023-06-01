@@ -46,16 +46,15 @@ function App () {
   }
   return (
     <>
-      <header>
+      <header style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'flex-end', width: '100vw' }}>
         <h1> ⛈️ Weather app 🌤️</h1>
-      </header>
-      <main>
-
         <section className='select-section'>
           <CountrySelect countryHandler={countryHandler} countries={countries} />
           {cityLoader && <Spinner />}
           {cities && <CitySelect allCities={cities} cityHandler={cityHandler} />}
         </section>
+      </header>
+      <main>
 
         {weatherLoader && (
           <>

@@ -1,8 +1,8 @@
 import { Select } from 'antd'
-import SearchableSelect from './SearchableSelect'
+// import SearchableSelect from './SearchableSelect'
 
 export function CitySelect ({ allCities, cityHandler }) {
-  const citiop = allCities.map(({ id, name }) => ({ value: id, label: name }))
+  // const citiop = allCities.map(({ id, name }) => ({ value: id, label: name }))
   return (
     <>
       <Select
@@ -18,12 +18,6 @@ export function CitySelect ({ allCities, cityHandler }) {
         options={allCities.map(({ id, name }) => ({ value: id, label: name }))}
         onChange={cityHandler}
       />
-
-      <SearchableSelect
-        options={citiop}
-        onChange={cityHandler}
-      />
-
     </>
   )
 
