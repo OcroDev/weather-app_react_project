@@ -19,7 +19,6 @@ function App () {
   const [weatherLoader, setWeatherLoader] = useState(false)
   const countryRef = useRef()
   const cityRef = useRef()
-
   const countryHandler = async (e) => {
     if (!e) {
       setCities(null)
@@ -35,8 +34,8 @@ function App () {
 
   const cityHandler = async (e) => {
     setWeather(null)
-    if (!e.currentTarget.value) setWeather(null)
-    const citySelected = e.target.value
+    if (!e) setWeather(null)
+    const citySelected = e
     const newCity = cities.find((element) => element.id === citySelected)
     if (newCity) {
       cityRef.current = newCity.name
@@ -52,7 +51,7 @@ function App () {
       </header>
       <main>
 
-        <section>
+        <section className='select-section'>
           <CountrySelect countryHandler={countryHandler} countries={countries} />
           {cityLoader && <Spinner />}
           {cities && <CitySelect allCities={cities} cityHandler={cityHandler} />}

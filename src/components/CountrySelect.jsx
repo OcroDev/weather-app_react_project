@@ -1,27 +1,22 @@
-import {Select} from 'antd'
+import { Select } from 'antd'
 
 export function CountrySelect ({ countryHandler, countries }) {
-  
-  
-  function handler(e) {
-    console.log(e)
-  }
   return (
     <>
       <Select
         showSearch
-        style={{ width: '200px' }}
-        placeholder="Search to your Country"
-        optionFilterProp="children"
-        filterOption={(value, option) => (option?.label ?? '').includes(value)}
+        // style={{ width: '220px' }}
+        placeholder='Search to your Country'
+        optionFilterProp='children'
+        filterOption={(value, option) => (option?.label ?? '').toLowerCase().includes(value.toLowerCase())}
         filterSort={(optionA, optionB) => (optionA?.label ?? '')
           .toLowerCase()
           .localeCompare((optionB?.label ?? '')
-            .toLowerCase())
-        }
-        options={countries.map(({ name, cca2 }) => ({ value: cca2, label: name.common.toLowerCase() })  )}
+            .toLowerCase())}
+        options={countries.map(({ name, cca2 }) => ({ value: cca2, label: name.common }))}
         onChange={countryHandler}
       />
+
     </>
   )
 }
