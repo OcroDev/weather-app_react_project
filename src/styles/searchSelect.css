@@ -1,0 +1,17 @@
+.searchSelect-container {
+  display: flex;
+  align-items: center;
+}
+
+.searchSelect-search {
+  flex: 1;
+  padding: 5px;
+  font-size: 16px;
+  width: 10em;
+}
+
+.searchSelect-select {
+  margin-left: 10px;
+  padding: 5px;
+  font-size: 16px;
+}
