@@ -1,14 +1,14 @@
-
 import { useRef, useState } from 'react'
 import { getCities } from './services/getCities'
 import { CitySelect } from './components/CitySelect'
 import { CountrySelect } from './components/CountrySelect'
 import { getWeather } from './services/getWeather'
-import Weather from './components/Weather'
 import { Spinner } from './components/Spinner'
 import { WeatherLoader } from './components/WeatherLoader'
-import './App.css'
+import Weather from './components/Weather'
 import useCountries from './hooks/useCountries'
+import logo from './assets/logo.png'
+import './App.css'
 
 function App () {
   // States
@@ -46,8 +46,12 @@ function App () {
   }
   return (
     <>
-      <header style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'flex-end', width: '100vw' }}>
-        <h1> ⛈️ Weather app 🌤️</h1>
+      <header>
+        <div className='logo-header'>
+          <a href=''>
+            <img src={logo} alt='app weather logo' width={60} />
+          </a>
+        </div>
         <section className='select-section'>
           <CountrySelect countryHandler={countryHandler} countries={countries} />
           {cityLoader && <Spinner />}

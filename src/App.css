@@ -1,26 +1,49 @@
-h1{
-  text-align: center;
-}
-
- section{
-    display: flex;
-    flex-direction:column;
- }
-
- .select-section{
+header{
+  /* background-color: antiquewhite; */
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+
+.logo-header{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header section{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
   gap: 1em;
-  flex-grow: 1;
- }
+}
+
 
 @media screen and (min-width:750px){
-.select-section{ 
-  flex-direction: row;}
-  section{
-    
-  flex-direction: row;
-  align-items: center;
-  gap: 1em;
+  header{
+    flex-direction: row;
   }
+  
+  .logo-header{
+    flex-direction: row;
+    justify-content: flex-start;
+    width:35%;
+  }
+
+  .logo-header img{
+    width: 35%;
+  }
+
+  header section{ 
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+  }
+  
 }

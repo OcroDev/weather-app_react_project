@@ -1574,6 +1574,8 @@ dialog {
   }
 }
 
+
+
 dialog > header:first-child {
   background-color: #efefef;
   background-color: var(--background);

@@ -5,7 +5,7 @@ export function CountrySelect ({ countryHandler, countries }) {
     <>
       <Select
         showSearch
-        // style={{ width: '220px' }}
+        style={{ width: '100%' }}
         placeholder='Search to your Country'
         optionFilterProp='children'
         filterOption={(value, option) => (option?.label ?? '').toLowerCase().includes(value.toLowerCase())}
