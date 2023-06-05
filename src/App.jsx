@@ -9,6 +9,7 @@ import Weather from './components/Weather'
 import useCountries from './hooks/useCountries'
 import logo from './assets/logo.png'
 import './App.css'
+import { Footer } from './components/Footer'
 
 function App () {
   // States
@@ -70,6 +71,7 @@ function App () {
         {weather && <Weather weatherData={weather} countryName={countryRef.current} cityName={cityRef.current} />}
 
       </main>
+      <Footer />
 
     </>
   )
